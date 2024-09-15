@@ -289,61 +289,40 @@
     margin-top: 10px;
   }
   
-  .loader {
+  .loader1 {
     margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .loader hr {
+}
+
+.loader1 hr {
     width: 10px;
     height: 10px;
     margin: 2px;
     border-radius: 50%;
     border: none;
     background-color: #00f;
-    animation: bounce 0.6s infinite alternate;
-  }
-  
-  .loader hr:nth-child(1) {
+    animation: bounce 0.6s infinite alternate ease-in-out;
+}
+
+.loader1 hr:nth-child(1) {
     animation-delay: -0.4s;
-  }
-  
-  .loader hr:nth-child(2) {
+}
+
+.loader1 hr:nth-child(2) {
     animation-delay: -0.2s;
-  }
-  
-  .loader hr:nth-child(3) {
+}
+
+.loader1 hr:nth-child(3) {
     animation-delay: 0s;
-  }
-  
-  @keyframes bounce {
+}
+
+@keyframes bounce {
     0% {
-      transform: translateY(0);
+        transform: translateY(0);
     }
     100% {
-      transform: translateY(-10px);
+        transform: translateY(-10px);
     }
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes scaleIn {
-    0% {
-      transform: scale(0.8);
-      opacity: 0;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-  
+}
