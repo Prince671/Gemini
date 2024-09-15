@@ -130,7 +130,7 @@ const Main = () => {
             {isReconnecting && (
               <div className="reconnecting">
                 <p>Reconnecting...</p>
-                <div className="loader">
+                <div className="loader1">
                   <hr />
                   <hr />
                   <hr />
