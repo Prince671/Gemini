@@ -1,4 +1,4 @@
-// const apikey = "AIzaSyD7dpuG-cslWOb3tzYbsIH8_Egzya10lP4";
+// const apikey = "AIzaSyCAvO2r56lND0Xy5JPnOEfa3tPSmJBWQgM";
 
 /*
  * Install the Generative AI SDK
@@ -7,38 +7,35 @@
  */
 
 import {
-    GoogleGenerativeAI,
-    HarmCategory,
-    HarmBlockThreshold,
-  } from "@google/generative-ai"
-  
-  const apiKey = "AIzaSyD5E9TDngU5XFCSm6BafZ2QdAD_3iwf5as";
-  const genAI = new GoogleGenerativeAI(apiKey);
-  
-  const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
+  GoogleGenerativeAI,
+  HarmCategory,
+  HarmBlockThreshold,
+} from "@google/generative-ai";
+
+const apiKey = "AIzaSyCAvO2r56lND0Xy5JPnOEfa3tPSmJBWQgM"; // Updated API Key
+const genAI = new GoogleGenerativeAI(apiKey);
+
+const model = genAI.getGenerativeModel({
+  model: "gemini-1.5-flash",
+});
+
+const generationConfig = {
+  temperature: 1,
+  topP: 0.95,
+  topK: 64,
+  maxOutputTokens: 8192,
+  responseMimeType: "text/plain",
+};
+
+async function run(prompt) {
+  const chatSession = model.startChat({
+    generationConfig,
+    history: [],
   });
-  
-  const generationConfig = {
-    temperature: 1,
-    topP: 0.95,
-    topK: 64,
-    maxOutputTokens: 8192,
-    responseMimeType: "text/plain",
-  };
-  
-  async function run(prompt) {
-    const chatSession = model.startChat({
-      generationConfig,
-   // safetySettings: Adjust safety settings
-   // See https://ai.google.dev/gemini-api/docs/safety-settings
-      history: [
-      ],
-    });
-  
-    const result = await chatSession.sendMessage(prompt);
-    console.log(result.response.text());
-    return result.response.text();
-  }
-  
-  export default run
+
+  const result = await chatSession.sendMessage(prompt);
+  console.log(result.response.text());
+  return result.response.text();
+}
+
+export default run;
